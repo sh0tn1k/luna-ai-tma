@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --color-luna-bg: #0f0a16;
+  --color-luna-bg2: #160b22;
+  --color-luna-card: #1a1228;
+  --color-luna-card2: #221833;
+  --color-luna-pink: #ff2d78;
+  --color-luna-pink2: #e91e63;
+  --color-luna-magenta: #ff4bb4;
+  --color-luna-gem: #ffd700;
+  --color-luna-muted: #9ca3af;
+  --color-luna-glass: rgba(255, 255, 255, 0.08);
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: var(--color-luna-bg);
+  color: white;
+  font-family: var(--font-sans);
+  overscroll-behavior: none;
+}
+
+body {
+  background: radial-gradient(ellipse at top, #1a0b2e 0%, #0f0a16 55%, #050308 100%);
+  min-height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.glass {
+  background: rgba(20, 12, 32, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pill {
+  border-radius: 9999px;
+}
+
+.pink-glow {
+  box-shadow: 0 0 24px rgba(255, 45, 120, 0.45), 0 8px 24px rgba(255, 45, 120, 0.25);
+}
+
+.pink-btn {
+  background: linear-gradient(90deg, #ff2d78 0%, #ff4bb4 100%);
+}
+
+.orange-btn {
+  background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%);
+}
+
+.safe-bottom {
+  padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+}
+
+.feed-snap {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.feed-snap > * {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translate(-50%, 12px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.toast-anim {
+  animation: toast-in 0.25s ease-out;
+}
